@@ -8,11 +8,11 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Cute Pink Elegant Theme
+# Cute Pink + Purple Theme with Heart Animation
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #ffe4f0 0%, #f8d7e8 100%);
+        background: linear-gradient(135deg, #ffe4f0 0%, #f3d8ff 100%);
     }
     .main-title {
         font-size: 58px;
@@ -24,7 +24,7 @@ st.markdown("""
     }
     .subtitle {
         font-size: 32px;
-        color: #ad1457;
+        color: #9c27b0;
         text-align: center;
         font-weight: 500;
         margin-bottom: 30px;
@@ -36,19 +36,23 @@ st.markdown("""
         text-align: center;
         max-width: 720px;
         margin: 35px auto;
-        background: rgba(255,255,255,0.75);
+        background: rgba(255,255,255,0.8);
         padding: 30px;
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-    .highlight {
-        color: #e91e63;
-        font-weight: 600;
+
+    /* Purple Heart Animation */
+    @keyframes heartPop {
+        0% { transform: scale(0.2); opacity: 0; }
+        50% { transform: scale(1.3); }
+        100% { transform: scale(1); opacity: 1; }
     }
-    .button {
-        background-color: #ff69b4;
-        color: white;
-        border-radius: 12px;
+    .heart {
+        font-size: 40px;
+        animation: heartPop 1.5s ease forwards;
+        display: inline-block;
+        margin: 5px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -68,42 +72,56 @@ st.markdown("""
         As your cousin who sees you like a little sister, I’m really proud of everything you are and everything you’re becoming.<br><br>
         
         May your 16th year be filled with joy, success, new adventures, and all the things that make you happy. 
-        Keep shining brightly and following your dreams — the world is yours.<br><br>
+        Keep shining brightly and following your dreams.<br><br>
         
-        I’m always here for you, no matter what. 
-        Wishing you the most beautiful and memorable Sweet 16!
+        I’m always here for you. Wishing you the most beautiful and memorable Sweet 16!
     </p>
 """, unsafe_allow_html=True)
 
-# Cute Interactive Elements
-st.markdown("### 💕 Make Your Birthday Special")
+# Interactive Section with Purple Hearts
+st.markdown("### 💜 Make Your Birthday Magical")
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
     if st.button("🌸 Send a Virtual Hug", use_container_width=True):
-        st.success("Hug delivered with lots of love 🤗💕")
-        st.balloons()
+        st.success("Hug delivered with love 🤗💕")
+        st.markdown("""
+            <div style="text-align:center; margin:20px 0;">
+                <span class="heart">💜</span>
+                <span class="heart">💜</span>
+                <span class="heart">💜</span>
+                <span class="heart">💜</span>
+                <span class="heart">💜</span>
+            </div>
+        """, unsafe_allow_html=True)
 
 with col2:
     if st.button("🎂 Blow the Candles", use_container_width=True):
-        st.balloons()
-        st.success("Wish granted! ✨ Make another one!")
+        st.success("Wish granted! ✨")
+        st.markdown("""
+            <div style="text-align:center; margin:20px 0;">
+                💜💜💜💜💜💜💜
+            </div>
+        """, unsafe_allow_html=True)
 
 with col3:
-    if st.button("💖 Heart Sparkles", use_container_width=True):
-        st.snow()
-        st.success("Sparkles and good vibes sent! 🌟")
+    if st.button("💜 Purple Heart Blast", use_container_width=True):
+        st.markdown("""
+            <div style="text-align:center; margin:25px 0; font-size:50px;">
+                💜 💜 💜 💜 💜<br>
+                💜 💜 💜 💜 💜<br>
+                💜 💜 💜 💜 💜
+            </div>
+        """, unsafe_allow_html=True)
+        st.success("Hearts sent your way! 💜")
 
-# Extra cute touches
+# Footer
 st.markdown("---")
 st.markdown("""
-    <p style='text-align: center; font-size: 22px; color: #c2185b;'>
-        Lots of love & pride ❤️
+    <p style='text-align: center; font-size: 22px; color: #9c27b0;'>
+        Lots of love & pride from your big cousin ❤️
     </p>
 """, unsafe_allow_html=True)
 
-st.caption(f"From your big cousin • {datetime.now().strftime('%B %d, %Y')}")
-
-# Floating balloons effect
-st.balloons()
+st.caption(f"Sent on {datetime.now().strftime('%B %d, %Y')}")
