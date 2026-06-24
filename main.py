@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 from datetime import datetime
 
 st.set_page_config(
@@ -42,7 +43,7 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    /* Floating Purple Hearts Animation */
+    /* Floating Purple Hearts */
     @keyframes floatUp {
         0% { transform: translateY(100px) scale(0.5); opacity: 0; }
         20% { opacity: 1; }
@@ -113,7 +114,6 @@ st.caption(f"Sent on {datetime.now().strftime('%B %d, %Y')}")
 # Helper function for floating hearts
 def create_floating_hearts(count=10):
     hearts = ""
-    import random
     for i in range(count):
         left = random.randint(10, 90)
         delay = random.uniform(0.2, 2.5)
