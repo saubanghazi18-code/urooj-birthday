@@ -1,65 +1,87 @@
 import streamlit as st
 from datetime import datetime
 
-st.set_page_config(page_title="Happy 16th Birthday Sis! 🎀", page_icon="🌸", layout="centered")
+# Page Configuration
+st.set_page_config(
+    page_title="Happy 16th Birthday | Urooj Fatima",
+    page_icon="🎂",
+    layout="centered",
+    initial_sidebar_state="collapsed"
+)
 
-# Cute pink theme
+# Clean & Elegant Styling
 st.markdown("""
     <style>
-    .big-font { 
-        font-size: 65px !important; 
-        font-weight: bold; 
-        color: #FF69B4; 
+    .main-title {
+        font-size: 52px;
+        font-weight: 700;
+        color: #2C3E50;
         text-align: center;
-        text-shadow: 3px 3px 6px #FFB6C1;
+        margin-bottom: 10px;
     }
-    .message { 
-        font-size: 29px; 
-        text-align: center; 
-        color: #4B0082; 
-        line-height: 1.6;
+    .subtitle {
+        font-size: 28px;
+        color: #34495E;
+        text-align: center;
+        font-weight: 500;
     }
-    .heart { color: #FF1493; font-size: 40px; }
+    .message {
+        font-size: 24px;
+        line-height: 1.8;
+        color: #2C3E50;
+        text-align: center;
+        max-width: 700px;
+        margin: 30px auto;
+    }
+    .highlight {
+        color: #E91E63;
+        font-weight: 600;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-st.title("🎀 HAPPY 16TH BIRTHDAY MY SWEET COUSIN! 🌷")
+# Header
+st.markdown('<h1 class="main-title">Happy 16th Birthday</h1>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">Urooj Fatima</p>', unsafe_allow_html=True)
 
-st.markdown('<p class="big-font">Happy Sweet 16! 🎉</p>', unsafe_allow_html=True)
-
-name = st.text_input("Her name (optional)", value="Princess")
-
-st.markdown(f"""
+# Main Message
+st.markdown("""
     <p class="message">
-        To my adorable little sister {name} 💖<br><br>
+        Dear Urooj,<br><br>
         
-        Happy 16th Birthday!! 🎂✨<br>
-        You’ve grown into such a beautiful, kind, and amazing girl. 
-        Watching you grow up has been one of the best parts of my life. 
-        Keep shining bright, chasing your dreams, and never forget how special you are.<br><br>
+        Happy 16th Birthday! 🎉<br><br>
         
-        I’m always here for you — through cake, drama, laughs, and everything in between ❤️<br><br>
+        Watching you grow into a confident, intelligent, and wonderful young woman has been really special. 
+        As your cousin, I’ve always seen you like a little sister, and I’m truly proud of the person you are becoming.<br><br>
         
-        Have the most magical day ever filled with love, presents, and all your favorite things!
+        May this new chapter of your life bring you clarity, success, beautiful experiences, and all the happiness you deserve. 
+        Keep shining, keep learning, and continue being your amazing self.<br><br>
+        
+        I’m always here for you — whenever you need advice, a chat, or just someone in your corner.<br><br>
+        
+        Wishing you an unforgettable Sweet 16!
     </p>
 """, unsafe_allow_html=True)
 
-# Cute interactive buttons
-col1, col2, col3 = st.columns(3)
+# Interactive Section
+st.markdown("### 🎈 Celebrate with a Wish")
+col1, col2 = st.columns(2)
+
 with col1:
-    if st.button("🌸 Send a big hug"):
-        st.success("Hug delivered with extra love! 🤗")
-with col2:
-    if st.button("🍭 Sweet 16 wishes"):
+    if st.button("🎂 Make a Birthday Wish", use_container_width=True):
         st.balloons()
-        st.success("Wishes sent! Make a wish on the candles ✨")
-with col3:
-    if st.button("💖 Heart explosion"):
-        st.success("💖💖💖💖💖")
+        st.success("Wish sent into the universe ✨")
 
-st.snow()
-st.balloons()
+with col2:
+    if st.button("🌟 Send Good Vibes", use_container_width=True):
+        st.snow()
+        st.success("Positive energy delivered 💫")
 
+# Footer
 st.markdown("---")
-st.markdown("**Made with tons of love by your big cousin** ❤️")
-st.caption(f"Sent on {datetime.now().strftime('%B %d, %Y')} | You're officially 16! 🎂")
+st.markdown(
+    "<p style='text-align: center; color: #666; font-size: 18px;'>"
+    "Made with love and pride by your big cousin ❤️</p>", 
+    unsafe_allow_html=True
+)
+st.caption(f"Sent on {datetime.now().strftime('%B %d, %Y')}")
