@@ -1,5 +1,4 @@
 import streamlit as st
-import random
 from datetime import datetime
 
 st.set_page_config(
@@ -9,11 +8,11 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Cute Pink + Purple Theme + Floating Hearts
+# Cute Pink Elegant Theme
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #ffe4f0 0%, #f3d8ff 100%);
+        background: linear-gradient(135deg, #ffe4f0 0%, #f8d7e8 100%);
     }
     .main-title {
         font-size: 58px;
@@ -25,7 +24,7 @@ st.markdown("""
     }
     .subtitle {
         font-size: 32px;
-        color: #9c27b0;
+        color: #ad1457;
         text-align: center;
         font-weight: 500;
         margin-bottom: 30px;
@@ -37,25 +36,19 @@ st.markdown("""
         text-align: center;
         max-width: 720px;
         margin: 35px auto;
-        background: rgba(255,255,255,0.85);
+        background: rgba(255,255,255,0.75);
         padding: 30px;
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-
-    /* Floating Purple Hearts */
-    @keyframes floatUp {
-        0% { transform: translateY(100px) scale(0.5); opacity: 0; }
-        20% { opacity: 1; }
-        80% { opacity: 1; }
-        100% { transform: translateY(-800px) scale(1.2); opacity: 0; }
+    .highlight {
+        color: #e91e63;
+        font-weight: 600;
     }
-    .floating-heart {
-        position: fixed;
-        font-size: 35px;
-        animation: floatUp 6s linear forwards;
-        z-index: 1000;
-        pointer-events: none;
+    .button {
+        background-color: #ff69b4;
+        color: white;
+        border-radius: 12px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -72,58 +65,45 @@ st.markdown("""
         Happy 16th Birthday! 🎉🌸<br><br>
         
         You’ve grown into such a beautiful, smart, and amazing young woman. 
-        As your cousin who sees you like a little sister, I’m really proud of you.<br><br>
+        As your cousin who sees you like a little sister, I’m really proud of everything you are and everything you’re becoming.<br><br>
         
-        May your 16th year be filled with joy, success, new adventures, and all the happiness you deserve. 
-        Keep shining and chasing your dreams.<br><br>
+        May your 16th year be filled with joy, success, new adventures, and all the things that make you happy. 
+        Keep shining brightly and following your dreams — the world is yours.<br><br>
         
-        I’m always here for you. Wishing you a truly memorable Sweet 16!
+        I’m always here for you, no matter what. 
+        Wishing you the most beautiful and memorable Sweet 16!
     </p>
 """, unsafe_allow_html=True)
 
-# Interactive Section
-st.markdown("### 💜 Celebrate with Floating Hearts")
+# Cute Interactive Elements
+st.markdown("### 💕 Make Your Birthday Special")
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
     if st.button("🌸 Send a Virtual Hug", use_container_width=True):
-        st.success("Hug sent with love 🤗💕")
-        st.markdown(create_floating_hearts(8), unsafe_allow_html=True)
+        st.success("Hug delivered with lots of love 🤗💕")
+        st.balloons()
 
 with col2:
     if st.button("🎂 Blow the Candles", use_container_width=True):
-        st.success("Wish granted! ✨")
-        st.markdown(create_floating_hearts(10), unsafe_allow_html=True)
+        st.balloons()
+        st.success("Wish granted! ✨ Make another one!")
 
 with col3:
-    if st.button("💜 Purple Heart Blast", use_container_width=True):
-        st.success("Hearts floating your way! 💜")
-        st.markdown(create_floating_hearts(15), unsafe_allow_html=True)
+    if st.button("💖 Heart Sparkles", use_container_width=True):
+        st.snow()
+        st.success("Sparkles and good vibes sent! 🌟")
 
-# Footer
+# Extra cute touches
 st.markdown("---")
 st.markdown("""
-    <p style='text-align: center; font-size: 22px; color: #9c27b0;'>
-        Lots of love & pride from your big cousin ❤️
+    <p style='text-align: center; font-size: 22px; color: #c2185b;'>
+        Lots of love & pride ❤️
     </p>
 """, unsafe_allow_html=True)
 
-st.caption(f"Sent on {datetime.now().strftime('%B %d, %Y')}")
+st.caption(f"From your big cousin • {datetime.now().strftime('%B %d, %Y')}")
 
-# Helper function for floating hearts
-def create_floating_hearts(count=10):
-    hearts = ""
-    for i in range(count):
-        left = random.randint(10, 90)
-        delay = random.uniform(0.2, 2.5)
-        size = random.randint(25, 45)
-        hearts += f"""
-            <span class="floating-heart" 
-                  style="left: {left}%; 
-                         animation-delay: {delay}s;
-                         font-size: {size}px;">
-                💜
-            </span>
-        """
-    return hearts
+# Floating balloons effect
+st.balloons()
